@@ -1,13 +1,716 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button:focus {outline:0 !important;}
+
+
+/*Games Page
+   "icons": [
+      {
+       "src": "favicon.ico",
+       "sizes": "64x64 32x32 24x24 16x16",
+       "type": "image/x-icon"
+     }
+     ]*/
+#gamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    width: 80%;
+    height: 100%;
+
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
 }
+
+
+.gameSquareContainer{
+
+    position: relative;
+
+}
+
+.gameSquare{
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 1em;
+
+    //background: #ffffff;
+    background-color: rgb(236,236,233);
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.35);
+    border-radius: 15px;
+    transition: all .1s;
+
+    //background-color: rgb(69,162,214);
+    border: none;
+  
+
+
+}
+
+.gameSquare.active:hover{
+  border: black solid 0px;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.4);
+
+}
+.gameSquare.empty{
+  opacity: .4;
+  font-size: 3em;
+  align-content: center;
+
+}
+.gameSquare.empty:hover{
+  opacity: 1;
+}
+
+.gameTitle{
+    position: relative;
+    font-weight: bold;
+    align-self: center;
+    font-size: 1.8em;
+    padding: 0em .5em 0em .5em;
+}
+
+#gamePreview{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.previewRow{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  background-color: rgb(253,253,252);
+}
+
+.previewTile{
+  /*flex-grow: 1;*/
+  width: 15px;
+  color: white;
+  font-size: 6px;
+  padding: 2px .2px .8px 2px;
+
+  box-shadow: 0px 1px 0px 0px #d2d8e2 inset;
+  border: solid inherit 1px;
+  border: none;
+  border-radius: 25%;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+
+  text-transform: uppercase;
+
+
+}
+/*
+.previewTile:after{
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+*/
+
+.previewTile#generic {
+    background-color: rgb(236,236,233);
+}
+
+.previewTile#activeWord {
+  background-color: rgb(247,184,68);
+  color: black;
+  font-weight: bold;
+  font-size: 8px;
+  padding: .4px .2px .4px .2px;
+}
+
+
+
+
+#delBtn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    
+    background: inherit;
+    color:  rgb(238,109,93,1);
+    
+    border: none;
+    font-size: 1.7em;   
+}
+#editBtn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  
+  color:  gray;
+  
+  border: none;
+  font-size: .5em;   
+}
+
+#gameNameInput{
+  display: inline;
+
+}
+
+#gameNameBtn{
+
+ display: inline;
+
+}
+
+
+
+/*Home Page*/
+/*
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+BLUE = (40,121,187)
+GREEN = (96,161,77)
+RED = (171,70,54)
+ORANGE = (225,141,57)
+GRAY = (216,216,216)
+LINECOLOR = (171,188,203) #abbccb
+YELLOW = (241,206,75)
+BORDERCOLOR = (208,222,230) #d0dee6
+GENERIC_TILE_TOP = (212,211,211) #d4d3d3
+GENERIC_TILE_BOTTOM = (240,240,235) #f0f0eb
+
+Second:
+
+GENERIC TILE background - (236,236,233)
+bakcground = (254,251,250)
+yellow = (247,284,68)
+green = (163,195,91)
+blue = (69,162,214)
+red = (238,109,93)
+orange = (243,153,92)
+
+ 
+ body{
+    background-color: #c5d7e6;
+  }
+  */
+  
+  .tile input {
+    box-shadow: 0px 2px 0px 0px #d2d8e2 inset;
+    padding: 7px 3px 7px 3px;
+    border: solid inherit 1px;
+    border:none;
+    border-radius: 25%;
+  
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
+  .tile.dash{
+    font-size: 2em;
+    border: solid #abbccb 1px;
+    color: white;
+    text-align: center;
+  }
+  .tile:focus{
+    outline: none;
+    background-image: linear-gradient(#c7c7c7, #d6d6d4) !important ;
+  }
+  
+  .tile::placeholder {
+    color: inherit;
+    font-size: inherit;
+  }
+  
+  .tile#generic {
+  /*
+    //background-image: linear-gradient(#d4d3d3, #f0f0eb);
+    */
+    background-color: rgb(236,236,233);
+    color: black;
+    placeholder: ""
+  
+  }
+
+  #doubleLetter {
+    background-color: rgb(69,162,214);
+  }
+  #tripleLetter {
+    background-color: rgb(163,195,91);
+  }
+  #doubleWord {
+    background-color: rgb(238,109,93);
+  }
+  #tripleWord {
+    background-color: rgb(243,153,92);
+  }
+  #center {
+    background-color: rgb(192,101,170);
+  }
+
+
+  .tile #activeWord {
+    background-color: rgb(247,184,68);
+    color: black;
+    font-weight: bold;
+  }
+  
+  .tile.highlighted{
+    background-color: rgb(238,109,93,.8) !important;
+  }
+
+  
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #solutionBox::-webkit-scrollbar {
+    display: none;}    
+
+  #solutionBox{
+    align-self: left;
+    overflow: scroll;
+    width: 200px;
+    max-height: 65vh;
+    background-color: white;
+    margin: 1em 2.5em 1em 0em;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(300px);
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  
+  }
+  
+  .solutionRect{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  
+    background-color: rgb(236,236,233);
+    color: black;
+    font-weight: bold;
+    /*
+    //border: 1px solid black;
+   
+  
+    //margin: 8px 7px 8px 7px;
+    
+    //line-height: normal;
+  
+    //box-shadow: 0px 2px 0px 0px #d2d8e2 inset;
+    //padding: 12px 6px 12px 6px;
+    //border:none;
+    //border-radius: 10px;
+     */
+    font-size: medium;
+
+    padding:20px 15px 20px 15px;
+    text-transform: uppercase;    
+    scroll-snap-align: start;
+    transition: .1s;
+
+  }
+  .solutionRect:hover{
+    background-color: rgb(238,109,93,.8);
+    
+  }
+  
+  .solutionWord{
+    font-size: small;
+  }
+  
+  .solutionScore{
+    font-size: small;
+  }
+  
+  #dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+  
+  }
+  
+
+
+
+
+
+  @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+/*
+body {
+
+  min-height: 100vh;
+  display: flex;
+}
+
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body, html, .App, #root, .auth-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+*/
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 2em;
+}
+
+.auth-inner {
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #7f7d7d;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #167bff;
+}
+.loginHeader{
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+/*Desktop*/
+@media (min-device-width: 541px) {
+
+  .auth-inner {
+    width: 30rem;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 40px 55px 45px 55px;
+  }
+  .gameSquareContainer{
+    width: 17rem;
+    height: 17rem;
+    margin: 1.5em 2.5em 1.5em 2.5em;
+  }
+  #bodyContainer{
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #boardAndBox{
+    display: flex;
+    flex-direction: row;
+  }
+  #board{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253,253,252);
+  }
+  
+  .rowComp{
+    display: flex;
+    flex-direction: row;
+    margin: none;
+    padding: none;
+  }
+  .tile{
+    margin: .5px 1px .5px 1px;
+    font-size: 1em;
+    line-height: normal;
+
+    width: 35px;
+
+    color: white;
+    text-align: center;
+    caret-color: transparent;
+    text-transform: uppercase;
+  }
+  #mobileSolutionBox{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+  #mobileSolutionBoxLabel{
+    position: relative;
+    text-align: center;
+    margin: auto;
+    overflow-x: visible;
+  }
+
+
+  .potientialWord{
+    background-color: rgb(247,184,68);
+    text-transform: uppercase;
+    padding: 0em .25em 0em .25em;
+    letter-spacing: 6px;
+    border-radius: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    transition: all .3s;
+    
+  }
+
+  .potientialWord:hover{
+    background-color: lightcoral;
+  }
+
+  #potientialWordScore{
+    position: absolute;
+    bottom: -13px;
+    right: -13px;
+    font-size: small;
+    background-color: rgb(71, 138, 214);
+    color:white;
+    border-radius: 10px;
+    padding: .2em;
+  }
+
+  .arrowbtn{
+    position: absolute;
+    top:.2em;
+
+    border: none;
+    background-color: inherit;
+    padding:none;
+    margin:none;
+    font-size: 2em;
+  }
+  .arrowbtn#right{
+    right: 0em;
+  }
+  .arrowbtn#left{
+    left: 0em;
+    
+  }
+  #dashboard{
+    padding: 0.2em 0em 1em 0em;
+    width: 100%;
+  }
+  #buttonContainer{
+    display: flex;
+    justify-content: center;
+  }
+  #findOptimalButton{
+    align-self: center;
+    padding: 1em 1.5em 1em 1.5em;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(69,162,214);
+    color: white;
+  }
+
+}
+
+
+/*Mobile*/
+@media (max-device-width: 540px) {
+  
+  .auth-inner {
+    width: auto;
+    margin: 3em .5em 3em .5em;
+    padding: 25px 25px 45px 25px;
+  }
+  .gameSquareContainer{
+    width: 17rem;
+    height: 17rem;
+    margin: 1.5em 0em 1.5em 0em;
+  }
+
+  #bodyContainer{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #boardAndBox{
+    display: flex;
+    flex-direction: row;
+  }
+  #board{
+
+    position: absolute;
+    top:20%;
+    left: 0px;
+    right: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(253,253,252);
+    //width: 100%;
+    align-items: center;
+
+  }
+  
+  .rowComp{
+    display: flex;
+    flex-direction: row;
+    margin: none;
+    padding: none;
+    //width: 100%;
+    
+  }
+  .tile{
+    margin: .2px .4px .2px .4px;
+    font-size: 2.5vw;
+    line-height: normal;
+    width: 6vw;
+    height: 3.5vh;
+
+    color: white;
+    text-align: center;
+    caret-color: transparent;
+    text-transform: uppercase;
+  }
+  #solutionBox{
+    display: none;
+  }
+  #mobileSolutionBox{
+    position: absolute;
+    bottom: 4.5%;
+    right: 0px;    
+    left: 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    min-height: 3em;
+  }
+  #mobileSolutionBoxLabel{
+    position: relative;
+    text-align: center;
+    align-self: center;
+    margin: auto;
+    
+  }
+  .arrowbtn{
+    position: absolute;
+    top: .5em;
+    border: none;
+    background-color: inherit;
+    min-width: 16vw;
+    padding:none;
+    margin:none;
+    font-size: 1.5em;
+  }
+  .arrowbtn#right{
+    right: 0em;
+  }
+  .arrowbtn#left{
+    left: 0em;
+  }
+  #dashboard{
+    position: absolute;
+    bottom: 11%;
+    right: 0px;    
+    left: 0px;
+    padding: 0.2em 0em 1em 0em;
+    width: 100%;
+
+  }
+  #dashboard .tile{
+    width: 11vw;
+    height: 11vw;
+    font-size: 1.4em;
+  }
+
+  .potientialWord{
+    background-color: rgb(247,184,68);
+    text-transform: uppercase;
+    padding: 0em .5em 0em .5em;
+    line-height: 1.8em;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  .potientialWord#large{
+    font-size: 5vw;
+  }
+  .potientialWord#normal{
+    font-size: 1.5em;
+  }
+
+  #potientialWordScore{
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: .3em;
+    background-color: rgb(71, 138, 214);
+    color:white;
+    border-radius: 10px;
+    padding: 1em;
+  }
+
+  #buttonContainer{
+
+    position: fixed;
+    bottom: 4.5%;
+    right: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    
+
+  }
+  #findOptimalButton{
+    align-self: center;
+    padding: 1em 1.5em 1em 1.5em;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(69,162,214);
+    color: white;
+  }
+
+
+}
+
+
+
