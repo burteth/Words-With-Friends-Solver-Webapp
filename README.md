@@ -2,7 +2,6 @@
 
 <h2 align="center"><a  href="https://words-with-friends-solver.sloppy.zone/">Live Demo</a></h2>
 
----
 ## Description
 
 Words with friends is a crossword-puzzle style game where players take turns playing words in a similar manner to Scrabble. This webapp was created in React Js and finds the highest scoring word possiable to place given the users current letters. Users can create an account and have up to 12 ongoing games per account. 
@@ -18,14 +17,14 @@ Words with friends is a crossword-puzzle style game where players take turns pla
 - **Delete** letters my typing a space instead of a letter
 - **Blank Tiles** can be used by typing in a question mark (?)
 <p align="center">
-<img  src="https://media.giphy.com/media/IgXWLeNcEuQPBr6VL1/giphy.gif" width="80%"></p>
+<img  src="https://media.giphy.com/media/IgXWLeNcEuQPBr6VL1/giphy.gif" width="60%"></p>
 
-###Finding Solutions:
+### Finding Solutions:
 - **Click** on the find solutions button under the board
 - Navigate through the solutions using the arrow buttons
 - Automatically input a suggested word by clicking on it
 <p align="center">
-<img  src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif" width="80%"></p>
+<img  src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif" width="60%"></p>
 
 ## About the project.
 
