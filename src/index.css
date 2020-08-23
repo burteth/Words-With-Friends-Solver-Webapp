@@ -545,67 +545,68 @@ body, html, .App, #root, .auth-wrapper {
     color: white;
   }
 
+  /*Tutorial*/
+
+  #tutorialBlock{
+    position: absolute;
+    display: flex;
+    width: 55vw;
+    height: 70vh;
+    justify-content: center;
+    overflow: visible;
+    background-color: white;
+    border: grey solid 2px;
+  }
+
+  #tutorialButtonContainer{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    bottom: 1em;
+    padding: 0em 1em 0em 1em;
+  }
+  .tutorialButton{
+    padding: 1em 1.5em 1em 1.5em;
+    margin: .4em;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(69,162,214);
+    color: white;
+  }
+  #skipBtn.tutorialButton{
+      margin-right: auto;
+  }
+
+  .pageHeader{
+    padding: 1em;
+    font-size:2em;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+  }
+
+  .pagePartitionBox{
+    display: flex;
+    flex-direction: row;
+  }
+  .pagePartition{
+    padding: 0.5em ;
+  }
+
+  #pageLeftPartition{
+    align-self: flex-start;
+  }
+
+  #pageGif{
+    height: 42vh;
+    max-width: 20vw;
+  }
+
 }
 
 
 
-/*Tutorial*/
-
-#tutorialBlock{
-  position: absolute;
-  display: flex;
-  width: 55vw;
-  height: 70vh;
-  justify-content: center;
-  overflow: visible;
-  background-color: white;
-  border: grey solid 2px;
-}
-
-#tutorialButtonContainer{
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  bottom: 1em;
-  padding: 0em 1em 0em 1em;
-}
-.tutorialButton{
-  padding: 1em 1.5em 1em 1.5em;
-  margin: .4em;
-  border: none;
-  border-radius: 7px;
-  background-color: rgb(69,162,214);
-  color: white;
-}
-#skipBtn.tutorialButton{
-    margin-right: auto;
-}
-
-.pageHeader{
-  padding: 1em;
-  font-size:2em;
-  font-weight: bold;
-  margin: auto;
-  text-align: center;
-}
-
-.pagePartitionBox{
-  display: flex;
-  flex-direction: row;
-}
-.pagePartition{
-  padding: 0.5em ;
-}
-
-#pageLeftPartition{
-  align-self: flex-start;
-}
-
-#pageGif{
-  height: 42vh;
-  max-width: 20vw;
-}
 
 
 /*Mobile*/
@@ -770,6 +771,64 @@ body, html, .App, #root, .auth-wrapper {
   }
 
 
+  #tutorialBlock{
+    position: absolute;
+    display: flex;
+    width: 80vw;
+    height: 85vh;
+    justify-content: center;
+    overflow: visible;
+    background-color: white;
+    border: grey solid 2px;
+    z-index: 2;
+    top: 10vh;
+  }
+  
+  #tutorialButtonContainer{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    bottom: 1em;
+    padding: 0em .5em 0em .5em;
+  }
+  .tutorialButton{
+    padding: .5em .6em .5em .6em;
+    margin: .4em;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(69,162,214);
+    color: white;
+  }
+  #skipBtn.tutorialButton{
+    margin-right: auto;
+  }
+  
+  .pageHeader{
+    padding: .5em;
+    font-size:2em;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .pagePartitionBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pagePartition{
+    padding: 0.5em;
+  }
+  
+  #pageLeftPartition{
+    align-self: flex-start;
+  }
+  
+  #pageGif{
+    height: 42vh;
+  }
+  
 }
 
 
