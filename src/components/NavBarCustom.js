@@ -13,7 +13,7 @@ export class NavBarCustom extends React.Component {
 				<Navbar variant="dark" bg="dark" expand="sm">
 
                     <LinkContainer to="/">
-					    <Navbar.Brand >WWF Solver </Navbar.Brand>
+					    <Navbar.Brand >Words with Friends Solver </Navbar.Brand>
                     </LinkContainer>
 
 

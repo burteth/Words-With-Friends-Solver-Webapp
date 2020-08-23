@@ -23,8 +23,8 @@ export class App extends React.Component {
 			email: '',
 			gameData: {"Game1": {'hand':[], 'tiles':[]}},
 			currentGame : "",
-			trie : {}
-
+			trie : {},
+			tutorial: true
 			};
 
 	}
@@ -159,6 +159,8 @@ export class App extends React.Component {
 								updateGameData={this.updateGameData.bind(this)}
 								isLoggedIn={this.state.isLoggedIn}
 								trie={this.state.trie}
+								tutorial={this.state.tutorial}
+								updateState={this.updateState.bind(this)}
 							/>
 						</Route>
 

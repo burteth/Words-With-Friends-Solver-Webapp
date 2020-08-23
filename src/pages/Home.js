@@ -5,6 +5,7 @@ import {encodeGameData} from '../helperFunctions/ProcessData';
 import Board from "./HomeComponents/Board";
 import DashBoard from "./HomeComponents/DashBoard";
 import MobileSolutionBox from "./HomeComponents/MobileSolutionBox";
+import Tutorial from './HomeComponents/Tutorial';
 
 
 export class Home extends React.Component {
@@ -18,6 +19,7 @@ export class Home extends React.Component {
 			potientialWords : [],
 			ButtonDisabled : false,
 			highlighted : {},
+			tutorialState : 0
 		}
 
 		{/*Data formats
@@ -230,9 +232,21 @@ export class Home extends React.Component {
 		
 	}
 
+	tutorialHelper() {
+		if (this.props.tutorial){
+			return(
+				<Tutorial
+					updateState={this.props.updateState}
+				/>
+			)
+		}return;
+
+	}
+
 	render() {
 		return (
 			<div id="bodyContainer">
+				{this.tutorialHelper.bind(this)()}
 				<div id="boardandDash">
 					<Board 
 						tiles={this.state.tiles}
