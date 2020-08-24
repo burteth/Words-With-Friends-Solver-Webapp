@@ -1,6 +1,8 @@
 import React from "react";
+import blank_tiles from "./images/WWF_blank_tiles.png";
+import game_page from "./images/WWF_game_page.png";
 
-const MAX_PAGES = 7;
+const MAX_PAGES = 6;
 
 export default class Tutorial extends React.Component {
   constructor(props){
@@ -36,7 +38,7 @@ export default class Tutorial extends React.Component {
 				</h6>
 				</div>
 				<div className="pagePartition" id="pageRightPartition">
-					<img id="pageGif"src="https://media.giphy.com/media/IgXWLeNcEuQPBr6VL1/giphy.gif"/>
+					<img id="pageGif"src="https://media.giphy.com/media/eJM9rvg8Y6QppkAbdU/giphy.gif"/>
 				</div>
 			</div>
         </div>
@@ -54,7 +56,7 @@ export default class Tutorial extends React.Component {
 					</h6>
 				  </div>
 				  <div className="pagePartition" id="pageRightPartition">
-					  <img id="pageGif" src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif"/>
+					  <img id="pageGif" src="https://media.giphy.com/media/RKNc13CG8X0sL4QGke/giphy.gif"/>
 				  </div>
 			  </div>
 		  </div>
@@ -72,7 +74,7 @@ export default class Tutorial extends React.Component {
 				  </h6>
 				  </div>
 				  <div className="pagePartition" id="pageRightPartition">
-					  <img id="pageGif" src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif"/>
+					  <img src={blank_tiles}/>
 				  </div>
 			  </div>
 		  </div>
@@ -100,20 +102,17 @@ export default class Tutorial extends React.Component {
 	  }else if (pageNum === 5){
 		return(
 		  <div className="pageBlock">
-				<div className="pageHeader">How to Play</div>  
+				<div className="pageHeader">Switching between games</div>  
   
 			  <div className="pagePartitionBox">
   
 				  <div className="pagePartition" id="pageLeftPartition">
-				  <h6>Finding Solutions:</h6>
 				  <h6>
-					  <li>Click on the find solutions button under the board</li>
-					  <li>Navigate through the solutions using the arrow buttons</li>
-					  <li>Automatically input a suggested word by clicking on it</li>
+					  <li>Once you have made an account you can save up to 20 active Words with Friends Games</li>					
 				  </h6>
 				  </div>
 				  <div className="pagePartition" id="pageRightPartition">
-					  <img id="pageGif" src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif"/>
+					  <img id="pageGif" src={game_page}/>
 				  </div>
 			  </div>
 		  </div>
@@ -121,20 +120,18 @@ export default class Tutorial extends React.Component {
 	  }else if (pageNum === 6){
 		return(
 		  <div className="pageBlock">
-				<div className="pageHeader">How to Play</div>  
+				<div className="pageHeader">Add a New Game</div>  
   
 			  <div className="pagePartitionBox">
   
 				  <div className="pagePartition" id="pageLeftPartition">
-				  <h6>Finding Solutions:</h6>
 				  <h6>
-					  <li>Click on the find solutions button under the board</li>
-					  <li>Navigate through the solutions using the arrow buttons</li>
-					  <li>Automatically input a suggested word by clicking on it</li>
+					  <li>Click on the New Game box </li>
+					  <li>Fill out your Opponent’s Name</li>
 				  </h6>
 				  </div>
 				  <div className="pagePartition" id="pageRightPartition">
-					  <img id="pageGif" src="https://media.giphy.com/media/Wm8r2Ye1kiKe67EDm6/giphy.gif"/>
+					  <img id="pageGif" src="https://media.giphy.com/media/IhDR0KGReNA0D1q4xx/giphy.gif"/>
 				  </div>
 			  </div>
 		  </div>
